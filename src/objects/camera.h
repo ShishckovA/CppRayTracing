@@ -7,7 +7,7 @@
 #define RAY_TRACING_CPP_CAMERA_H
 #include "vector3d.h"
 #include "ray.h"
-#include "../engine/utils.h"
+#include "../utils/utils.h"
 
 
 #include <vector>

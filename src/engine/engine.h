@@ -9,17 +9,8 @@
 #include "../objects/vector3d.h"
 #include "../objects/ray.h"
 #include "../objects/sphere.h"
-#include "utils.h"
+#include "../utils/utils.h"
 
-class IntersectRaySphereResult {
-public:
-    bool intersects;
-    Vector3D intersection_point;
-    double time_to_intersect;
-    IntersectRaySphereResult(bool intersects, const Vector3D& intersection_point, double time_to_intersect);
-};
-
-IntersectRaySphereResult intersect_ray_sphere(const Ray& ray, const Sphere& sphere);
 
 
 #endif //RAY_TRACING_CPP_ENGINE_H

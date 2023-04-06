@@ -16,5 +16,13 @@ public:
     Ray() = default;
 };
 
+class IntersectVisibleObjectWithRayResult {
+public:
+    bool intersects;
+    Vector3D intersection_point;
+    double time_to_intersect;
+    IntersectVisibleObjectWithRayResult() = default;
+    IntersectVisibleObjectWithRayResult(bool intersects, const Vector3D& intersection_point, double time_to_intersect);
+};
 
 #endif //RAY_TRACING_CPP_RAY_H
