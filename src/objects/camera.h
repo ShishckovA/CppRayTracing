@@ -5,6 +5,7 @@
 
 #ifndef RAY_TRACING_CPP_CAMERA_H
 #define RAY_TRACING_CPP_CAMERA_H
+
 #include "vector3d.h"
 #include "ray.h"
 #include "../utils/utils.h"
@@ -15,11 +16,13 @@
 class Camera {
 public:
     Vector3D pos;
-    Vector3D view_dir;
-    int resolution_w, resolution_h;
+    Vector3D viewDir;
+    int resolutionW, resolutionH;
     double fov;
-    Camera(const Vector3D& pos, const Vector3D& view_dir, int resolution_w, int resolution_h, double fov);
-    [[nodiscard]] std::vector<std::vector<Ray>> pixel_rays() const;
+
+    Camera(const Vector3D &pos, const Vector3D &view_dir, int resolutionW, int resolutionH, double fov);
+
+    [[nodiscard]] std::vector<std::vector<Ray>> pixelRays() const;
 };
 
 

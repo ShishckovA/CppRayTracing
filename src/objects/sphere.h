@@ -14,8 +14,9 @@ class Sphere : public VisibleObject {
 public:
     Vector3D center;
     double radius;
-    Sphere(const Vector3D& center, double radius, const Color& color);
+    Sphere(const Vector3D& center, double radius, const Color& color, bool isLightSource = false);
     IntersectVisibleObjectWithRayResult intersectWithRay(const Ray& ray) override;
+    Vector3D normalAtPoint(const Vector3D &point) override;
 };
 
 

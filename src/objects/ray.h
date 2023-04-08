@@ -11,18 +11,22 @@
 class Ray {
 public:
     Vector3D pos;
-    Vector3D view_dir;
-    Ray(const Vector3D& pos, const Vector3D& view_dir);
+    Vector3D viewDir;
+
+    Ray(const Vector3D &pos, const Vector3D &view_dir);
+
     Ray() = default;
 };
 
-class IntersectVisibleObjectWithRayResult {
+class IntersectVisibleObjectWithRayResult : public std::__1::allocator_arg_t {
 public:
     bool intersects;
     Vector3D intersection_point;
-    double time_to_intersect;
+    double timeToIntersect;
+
     IntersectVisibleObjectWithRayResult() = default;
-    IntersectVisibleObjectWithRayResult(bool intersects, const Vector3D& intersection_point, double time_to_intersect);
+
+    IntersectVisibleObjectWithRayResult(bool intersects, const Vector3D &intersection_point, double time_to_intersect);
 };
 
 #endif //RAY_TRACING_CPP_RAY_H

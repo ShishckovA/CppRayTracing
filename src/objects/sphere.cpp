@@ -6,16 +6,16 @@
 #include "sphere.h"
 #include <iostream>
 
-Sphere::Sphere(const Vector3D &center, const double radius, const Color &color_) :
+Sphere::Sphere(const Vector3D &center, const double radius, const Color &color_, bool isLightSource) :
         center(center), radius(radius) {
     this->color = color_;
-    std::cout << this->color << std::endl;
+    this->isLightSource = isLightSource;
 }
 
 IntersectVisibleObjectWithRayResult Sphere::intersectWithRay(const Ray &ray) {
-    double coef_a = ray.view_dir.norm_sq();
+    double coef_a = ray.viewDir.norm_sq();
     Vector3D diff = ray.pos - center;
-    double coef_b = 2 * ray.view_dir.dot(diff);
+    double coef_b = 2 * ray.viewDir.dot(diff);
     double coef_c = diff.norm_sq() - radius * radius;
     double D = coef_b * coef_b - 4 * coef_a * coef_c;
     if (D < 0) {
@@ -25,6 +25,9 @@ IntersectVisibleObjectWithRayResult Sphere::intersectWithRay(const Ray &ray) {
     if (t < 0) {
         return {false, {}, INFINITY};
     }
-    return {true, ray.pos + ray.view_dir * t, t};
+    return {true, ray.pos + ray.viewDir * t, t};
 }
 
+Vector3D Sphere::normalAtPoint(const Vector3D &point) {
+    return (point - center).normalize();
+}

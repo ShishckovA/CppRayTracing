@@ -11,7 +11,13 @@
 class VisibleObject {
 public:
     Color color;
-    virtual IntersectVisibleObjectWithRayResult intersectWithRay(const Ray& ray) = 0;
+
+    bool isLightSource;
+
+    virtual IntersectVisibleObjectWithRayResult intersectWithRay(const Ray &ray) = 0;
+
+    virtual Vector3D normalAtPoint(const Vector3D &point) = 0;
+
     virtual ~VisibleObject() = default;
 };
 

@@ -8,6 +8,8 @@
 
 
 #include <ostream>
+#include "../utils/utils.h"
+
 
 float const EPS = 1e-6;
 
@@ -39,9 +41,13 @@ public:
 
     [[nodiscard]] Vector3D cross(const Vector3D &other) const;
 
-    friend std::ostream& operator<< (std::ostream &out, const Vector3D &v);
+    static Vector3D randomInHemiSpace(const Vector3D &separatorPlaneNormal);
+
+    static Vector3D byPolarAngles(double phi, double psi, double radius = 1);
+
+    friend std::ostream &operator<<(std::ostream &out, const Vector3D &v);
 };
 
-std::ostream& operator<<(std::ostream& out, const Vector3D& v);
+std::ostream &operator<<(std::ostream &out, const Vector3D &v);
 
 #endif //RAY_TRACING_CPP_VECTOR3D_H

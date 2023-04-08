@@ -3,4 +3,3 @@
 //
 
 #include "visible_object.h"
-#include <iostream>

@@ -4,7 +4,7 @@
 
 #include "ray.h"
 
-Ray::Ray(const Vector3D &pos, const Vector3D &view_dir) : pos(pos), view_dir(view_dir.normalize()) {}
+Ray::Ray(const Vector3D &pos, const Vector3D &view_dir) : pos(pos), viewDir(view_dir.normalize()) {}
 
 
 IntersectVisibleObjectWithRayResult::IntersectVisibleObjectWithRayResult(bool intersects,
@@ -12,5 +12,5 @@ IntersectVisibleObjectWithRayResult::IntersectVisibleObjectWithRayResult(bool in
                                                                          double time_to_intersect) :
         intersects(intersects),
         intersection_point(intersection_point),
-        time_to_intersect(time_to_intersect) {}
+        timeToIntersect(time_to_intersect) {}
 

@@ -10,7 +10,15 @@
 #include "../objects/ray.h"
 #include "../objects/sphere.h"
 #include "../utils/utils.h"
+#include "../objects/camera.h"
 
+void render(
+        cv::Mat &image,
+        const std::vector<std::shared_ptr<VisibleObject>> &objects,
+        const Camera &cam,
+        int w,
+        int h
+);
 
 
 #endif //RAY_TRACING_CPP_ENGINE_H
